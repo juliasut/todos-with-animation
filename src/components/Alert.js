@@ -12,7 +12,8 @@ export const Alert = () => {
       role="alert"
     >
       <strong>Alert!</strong>
-      {alert.text}
+      {/* add a whitespace &nbsp; */}
+      &nbsp;{alert.text}
       <button
         onClick={hide}
         type="button"
