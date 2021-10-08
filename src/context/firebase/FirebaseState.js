@@ -4,8 +4,7 @@ import axios from 'axios';
 import { firebaseReducer } from './firebaseReducer';
 import { ADD_NOTE, FETCH_NOTES, REMOVE_NOTE, SHOW_LOADER } from '../types';
 
-const url = 'https://todos-with-animation-default-rtdb.firebaseio.com';
-
+const url = process.env.REACT_APP_DB_URL
 export const FirebaseState = ({ children }) => {
   const initialState = {
     notes: [],
