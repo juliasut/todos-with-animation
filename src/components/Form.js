@@ -1,16 +1,22 @@
 import React, { useState, useContext } from 'react';
 import { AlertContext } from '../context/alert/alertContext';
+import { FirebaseContext } from '../context/firebase/firebaseContext';
 
 export const Form = () => {
   const [value, setValue] = useState('');
   const alert = useContext(AlertContext);
+  const firebase = useContext(FirebaseContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
     if (value.trim()) {
-      //...
-      alert.show('New todo has been created', 'success');
+      // add title
+      firebase.addNote(value.trim()).then(() => {
+        alert.show('New todo has been created', 'success');
+      }).catch(() => {
+        alert.show('Something went wrong', 'danger');
+      })
       // clear the input field
       setValue('');
     } else {
