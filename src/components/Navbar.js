@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Navbar = () => (
   <nav className="navbar navbar-dark navbar-expand-lg bg-primary">
+     <div className="container-fluid">
     <div className="navbar-brand">Note App</div>
 
     <ul className="navbar-nav">
@@ -13,5 +14,6 @@ export const Navbar = () => (
         <NavLink className="nav-link" to="/about" >About</NavLink>
       </li>
     </ul>
+    </div>
   </nav>
 );
